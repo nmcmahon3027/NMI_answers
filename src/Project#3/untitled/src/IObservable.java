@@ -1,4 +1,6 @@
-public interface IObservable {
+
+
+public interface IObservable extends IObserver {
 	//register and unregister the observer object
 	public void register(IObserver observer);
 	public void unregister(IObserver observer);

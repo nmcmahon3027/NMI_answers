@@ -1,10 +1,17 @@
+
+
+//MobileDisplay is one display type that the observer can use
+//They register to this view/display to get updates
+
 public class MobileDisplay implements IObserver {
 
+	//The name that the use can add
 	private String name;
+	//The topic for on the display
 	private MobileDisplay topic;
 
-	public MobileDisplay(String nm) {//nm
-		this.name = nm;//=nm
+	public MobileDisplay(String nm) {
+		this.name = nm;
 	}
 
 	public MobileDisplay() {
@@ -36,12 +43,15 @@ public class MobileDisplay implements IObserver {
 
 
 	public void postMessage(String new_message) {
-		System.out.println("New Message: ");
+		System.out.println("New Message: Check ");
 	}
 
 	public void register(IObserver obj1) {
 		if(obj1.equals(obj1)){
+
 			System.out.println("registered object1! ");
+			System.out.println("Update Complete");
+			postMessage("Checking");
 		}
 	}
 }

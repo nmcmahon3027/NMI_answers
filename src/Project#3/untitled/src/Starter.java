@@ -6,15 +6,24 @@ public class Starter implements IObservable{
 
 	public static void main(String[] args){
 
-/*
+		ApplicationContext begin = new ClassPathXmlApplicationContext("spring-config.xml");
+		System.out.println("Spring Config Loaded Successfully! Chat Terminated");
 
-		ApplicationContext start = new ClassPathXmlApplicationContext("spring-config.xml");
-		System.out.println("Spring Config Loaded!");
 
-		UnitStation unitStation = (UnitStation) start.getBean("msg");
+		UnitStation unitStation = (UnitStation) begin.getBean("msg");
+		unitStation.register(unitStation);
+		System.out.println(begin);
+		unitStation.notify();
+		begin.notify();
 
+		//Test bean which posts a new message and notifies observer
 		unitStation.postMessage("Hello!!!!!");
-*/
+		unitStation.notifyObservers();
+
+
+		Starter starter = (Starter) begin.getBean("TEST TOPIC");
+		starter.register(starter);
+
 
 		//create subject
 		MobileDisplay topic = new MobileDisplay();
@@ -34,13 +43,23 @@ public class Starter implements IObservable{
 		((MobileDisplay) obj2).setMobileDisplay(topic);
 		((MobileDisplay) obj3).setMobileDisplay(topic);
 
-
-
 		//check if any update is available
 		obj1.update();
+		//Cast MobileDisplay to obj2
+		((MobileDisplay) obj2).postMessage("Hi! This is a new message");
 
 		//now send message to subject
 		topic.postMessage("New Message");
+
+		//Creates a Spring AppicationContext
+		ApplicationContext start = new ClassPathXmlApplicationContext("spring-config.xml");
+		System.out.println("Spring Config Loaded!");
+
+		//Test for another bean instance
+		unitStation.postMessage("Hello!!!!!");
+		unitStation.notifyObservers();
+
+
 	}
 
 	@Override
@@ -55,6 +74,7 @@ public class Starter implements IObservable{
 
 	@Override
 	public void notifyObservers() {
+		System.out.println("notified");
 
 	}
 
@@ -65,6 +85,16 @@ public class Starter implements IObservable{
 
 	public void setStarter(Starter starter) {
 		System.out.println("Spring running");
+	}
+
+	@Override
+	public void update() {
+
+	}
+
+	@Override
+	public void setIObservable(IObservable iObservable) {
+
 	}
 }
 
