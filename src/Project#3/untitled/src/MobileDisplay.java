@@ -3,6 +3,10 @@
 //MobileDisplay is one display type that the observer can use
 //They register to this view/display to get updates
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.ClassPathResource;
+
 public class MobileDisplay implements IObserver {
 
 	//The name that the use can add
