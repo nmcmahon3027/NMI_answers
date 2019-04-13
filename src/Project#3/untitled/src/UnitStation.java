@@ -8,7 +8,6 @@ public class UnitStation implements IObservable {
 	private boolean changed;
 	private final Object MUTEX = new Object();
 
-	//A rhetorical station that holds the number of units of obsevers
 	public UnitStation(){
 		this.observers = new ArrayList<>();
 	}
@@ -51,30 +50,12 @@ public class UnitStation implements IObservable {
 
 	//method to post message to the topic
 	public void postMessage(String msg){
-		System.out.println("Message Posted to Topic:"+ msg + " by " + observers);
+		System.out.println("Message Posted to Topic:"+msg);
 		this.message=msg;
 		this.changed=true;
 		notifyObservers();
-		System.out.println("Observers have been notified!");
-		System.out.println(" Current observers: " + observers.size());
-
 	}
 
-	public void setMessage(UnitStation message) {
-		System.out.println("Message Station Loaded: ");
-		System.out.println("ID: " + message);
-		postMessage("A new message has been posted! ");
-	}
-
-	@Override
-	public void update() {
-
-	}
-
-	@Override
-	public void setIObservable(IObservable iObservable) {
-
-	}
 }
 
 
