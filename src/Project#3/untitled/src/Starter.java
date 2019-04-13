@@ -10,7 +10,7 @@ public class Starter implements IObservable{
 		System.out.println("Spring Config Loaded Successfully! Chat Terminated");
 
 
-		UnitStation unitStation = (UnitStation) begin.getBean("msg");//msg
+		UnitStation unitStation = (UnitStation) begin.getBean("msg");
 		unitStation.register(unitStation);
 		System.out.println(begin);
 		unitStation.notify();
@@ -23,7 +23,6 @@ public class Starter implements IObservable{
 
 		Starter starter = (Starter) begin.getBean("TEST TOPIC");
 		starter.register(starter);
-
 
 
 		//create subject
@@ -43,8 +42,6 @@ public class Starter implements IObservable{
 		((MobileDisplay) obj1).setMobileDisplay(topic);
 		((MobileDisplay) obj2).setMobileDisplay(topic);
 		((MobileDisplay) obj3).setMobileDisplay(topic);
-
-
 
 		//check if any update is available
 		obj1.update();
@@ -86,7 +83,7 @@ public class Starter implements IObservable{
 		return null;
 	}
 
-	public void setStarter(Starter starter) { //6th message
+	public void setStarter(Starter starter) {
 		System.out.println("Spring running");
 	}
 
