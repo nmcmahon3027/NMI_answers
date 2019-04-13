@@ -5,6 +5,7 @@ public class Starter implements IObservable{
 
 
 	public static void main(String[] args){
+		//THIS IS THE RESUBMITTED VERSION
 
 		ApplicationContext begin = new ClassPathXmlApplicationContext("spring-config.xml");
 		System.out.println("Spring Config Loaded Successfully! Chat Terminated");
