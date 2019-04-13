@@ -19,7 +19,7 @@ public class Main {
         CreditCard silver = new SilverCreditCard();
 
         //different cards interacting w/ offers
-        //accepts any type of offer visitor
+        //accepts any type of offer Visitor
         //in this case a food offer
         bronze.accept(visitor);
         gold.accept(visitor);
