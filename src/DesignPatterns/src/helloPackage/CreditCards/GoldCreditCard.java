@@ -13,6 +13,7 @@ public class GoldCreditCard implements CreditCard{
 
 	@Override
 	public void accept(OfferVisitor offerVisitor) {
+		offerVisitor.visitGoldCreditCard(this);
 
 	}
 }
